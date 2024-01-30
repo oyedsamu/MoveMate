@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Move Mate</string>
+    <string name="your_location">Your Location</string>
+    <string name="tracking">Tracking</string>
+    <string name="available_vehicles">Available vehicles</string>
+    <string name="shipment_number">Shipment Number</string>
+    <string name="sender">Sender</string>
+    <string name="time">Time</string>
+    <string name="receiver">Receiver</string>
+    <string name="status">Status</string>
+    <string name="add_stop">Add Stop</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="location">Location</string>
+    <string name="notifications">Notifications</string>
+    <string name="shipments">Shipments</string>
+    <string name="destination">Destination</string>
+    <string name="sender_location">Sender location</string>
+    <string name="receiver_location">Receiver location</string>
+    <string name="approx_weight">Approx. weight</string>
+    <string name="calculate">Calculate</string>
+    <string name="shipment_history">Shipment history</string>
+    <string name="packaging">Packaging</string>
+    <string name="calculate_subtext">What are you sending</string>
+    <string name="categories">Categories</string>
+    <string name="box">Box</string>
+    <string name="back_to_home">Back to home</string>
+    <string name="scanner">Scanner</string>
+</resources>
