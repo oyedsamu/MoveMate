@@ -44,6 +44,7 @@ import com.byoyedele.movemate.ui.CostEstimateScreen
 import com.byoyedele.movemate.ui.ShipmentScreen
 import com.byoyedele.movemate.ui.theme.Purple
 import com.byoyedele.movemate.ui.utils.bounceClick
+import com.byoyedele.movemate.viewmodels.SearchViewModel
 
 
 @Composable
@@ -147,7 +148,7 @@ fun NavigationHost(navController: NavHostController, paddingValues: PaddingValue
             enterTransition ={ fadeIn(tween(2000)) + slideInVertically(tween(500)) }
         ) {
             SearchScreen(
-                HomeViewModel(), navController
+                SearchViewModel(), navController
             ) }
     }
 }

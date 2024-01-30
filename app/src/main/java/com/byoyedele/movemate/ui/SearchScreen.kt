@@ -59,7 +59,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.byoyedele.movemate.data.Item
+import com.byoyedele.movemate.model.Item
 import com.byoyedele.movemate.R
 import com.byoyedele.movemate.ui.theme.NavyBlue
 import com.byoyedele.movemate.ui.theme.Orange
@@ -67,9 +67,10 @@ import com.byoyedele.movemate.ui.theme.Purple
 import com.byoyedele.movemate.ui.utils.BallPoint
 import com.byoyedele.movemate.ui.utils.ContentAnimatedVisibility
 import com.byoyedele.movemate.viewmodels.HomeViewModel
+import com.byoyedele.movemate.viewmodels.SearchViewModel
 
 @Composable
-fun SearchScreen(viewModel: HomeViewModel, navController: NavController) {
+fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     var isContentVisible by remember { mutableStateOf(false) }
     val searchResults by viewModel.searchResults.collectAsStateWithLifecycle()
 

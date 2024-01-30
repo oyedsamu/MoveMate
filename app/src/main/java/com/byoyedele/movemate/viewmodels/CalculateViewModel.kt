@@ -35,4 +35,7 @@ class CalculateViewModel : ViewModel() {
     fun updateBox(input: String) {
         box = input
     }
+
+    val categories =
+        listOf("Document", "Glass", "Liquid", "Food", "Electronic", "Product", "Others")
 }

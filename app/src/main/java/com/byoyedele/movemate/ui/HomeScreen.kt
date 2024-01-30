@@ -49,8 +49,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.byoyedele.movemate.R
-import com.byoyedele.movemate.data.VehicleDetails
 import com.byoyedele.movemate.data.listOfVehicles
+import com.byoyedele.movemate.model.VehicleDetails
 import com.byoyedele.movemate.ui.theme.DimOrange
 import com.byoyedele.movemate.ui.theme.DirtyWhite
 import com.byoyedele.movemate.ui.theme.Green
@@ -300,7 +300,7 @@ fun ItemCard() {
                             fontSize = 12.sp,
                             color = Color.Gray
                         )
-                        Text(text = "Waiting to collect")
+                        Text(text = stringResource(id = R.string.waiting_to_collect))
                     }
                 }
             }

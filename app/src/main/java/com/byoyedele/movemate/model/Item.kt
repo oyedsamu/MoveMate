@@ -1,4 +1,4 @@
-package com.byoyedele.movemate.data
+package com.byoyedele.movemate.model
 
 import kotlinx.coroutines.flow.flowOf
 

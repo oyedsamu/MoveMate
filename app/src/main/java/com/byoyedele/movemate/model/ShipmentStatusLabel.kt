@@ -1,4 +1,4 @@
-package com.byoyedele.movemate.data
+package com.byoyedele.movemate.model
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
