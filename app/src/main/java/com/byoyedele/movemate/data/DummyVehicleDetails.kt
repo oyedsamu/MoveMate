@@ -1,14 +1,7 @@
 package com.byoyedele.movemate.data
 
-import androidx.annotation.DrawableRes
 import com.byoyedele.movemate.R
-
-data class VehicleDetails(
-    val name: String,
-    val type: String,
-    @DrawableRes
-    val image: Int
-)
+import com.byoyedele.movemate.model.VehicleDetails
 
 val listOfVehicles = listOf(
     VehicleDetails(name = "Ocean freight", type = "International", R.drawable.ship),

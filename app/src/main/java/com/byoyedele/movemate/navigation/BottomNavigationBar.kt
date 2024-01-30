@@ -34,16 +34,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.byoyedele.movemate.viewmodels.CalculateViewModel
-import com.byoyedele.movemate.ui.HomeScreen
-import com.byoyedele.movemate.viewmodels.HomeViewModel
-import com.byoyedele.movemate.ui.SearchScreen
-import com.byoyedele.movemate.viewmodels.ShipmentViewModel
 import com.byoyedele.movemate.ui.CalculateScreen
 import com.byoyedele.movemate.ui.CostEstimateScreen
+import com.byoyedele.movemate.ui.HomeScreen
+import com.byoyedele.movemate.ui.SearchScreen
 import com.byoyedele.movemate.ui.ShipmentScreen
 import com.byoyedele.movemate.ui.theme.Purple
 import com.byoyedele.movemate.ui.utils.bounceClick
+import com.byoyedele.movemate.viewmodels.HomeViewModel
 
 
 @Composable
@@ -115,10 +113,11 @@ fun BottomNavigationBar(navController: NavController) {
     }
 }
 
-enum class NavRoutes(val route: String){
+enum class NavRoutes(val route: String) {
     COST_ESTIMATE_SCREEN("finalDestination"),
     SEARCH_SCREEN("search");
 }
+
 inline fun <reified T> sealedValues(): List<T> {
     return T::class.sealedSubclasses.mapNotNull { it.objectInstance as T }
 }
@@ -126,28 +125,33 @@ inline fun <reified T> sealedValues(): List<T> {
 @Composable
 fun NavigationHost(navController: NavHostController, paddingValues: PaddingValues) {
     NavHost(navController, startDestination = BottomNavItem.Home.route) {
-        composable(BottomNavItem.Calculate.route,
-            ) {
+        composable(
+            BottomNavItem.Calculate.route,
+        ) {
             CalculateScreen(
-                CalculateViewModel(),
-                navController
+                navController = navController
             )
         }
-        composable(BottomNavItem.Home.route, exitTransition = { fadeOut(tween(1000)) + slideOutVertically(tween(1000)) }) { HomeScreen(
-            HomeViewModel(), navController) }
+        composable(
+            BottomNavItem.Home.route,
+            exitTransition = { fadeOut(tween(1000)) + slideOutVertically(tween(1000)) }) {
+            HomeScreen(
+                HomeViewModel(), navController
+            )
+        }
         composable(BottomNavItem.Shipment.route) {
             ShipmentScreen(
-                ShipmentViewModel(),
-                navController
+                navController = navController
             )
         }
-        composable(BottomNavItem.Profile.route) {  }
+        composable(BottomNavItem.Profile.route) { }
         composable(NavRoutes.COST_ESTIMATE_SCREEN.route) { CostEstimateScreen(navController) }
         composable(NavRoutes.SEARCH_SCREEN.route,
-            enterTransition ={ fadeIn(tween(2000)) + slideInVertically(tween(500)) }
+            enterTransition = { fadeIn(tween(2000)) + slideInVertically(tween(500)) }
         ) {
             SearchScreen(
-                HomeViewModel(), navController
-            ) }
+                navController = navController
+            )
+        }
     }
 }

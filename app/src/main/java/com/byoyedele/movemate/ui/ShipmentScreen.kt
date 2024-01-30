@@ -51,9 +51,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.byoyedele.movemate.R
-import com.byoyedele.movemate.data.ShipmentStatus
-import com.byoyedele.movemate.data.ShipmentStatusLabel
 import com.byoyedele.movemate.data.listOfShipmentStatus
+import com.byoyedele.movemate.model.ShipmentStatus
+import com.byoyedele.movemate.model.ShipmentStatusLabel
 import com.byoyedele.movemate.ui.theme.DarkBlue
 import com.byoyedele.movemate.ui.theme.DimOrange
 import com.byoyedele.movemate.ui.theme.LightGrey
@@ -63,9 +63,10 @@ import com.byoyedele.movemate.ui.utils.ContentAnimatedVisibility
 import com.byoyedele.movemate.ui.utils.TitledAppBar
 import com.byoyedele.movemate.ui.utils.bounceClick
 import com.byoyedele.movemate.viewmodels.ShipmentViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun ShipmentScreen(viewModel: ShipmentViewModel, navController: NavHostController) {
+fun ShipmentScreen(viewModel: ShipmentViewModel = viewModel(), navController: NavHostController) {
     Scaffold(
         topBar = {
             TitledAppBar(

@@ -1,12 +1,7 @@
 package com.byoyedele.movemate.data
 
-data class ShipmentStatus(
-    val status: ShipmentStatusLabel,
-    val message: String,
-    val details: String,
-    val amount: String,
-    val date: String,
-)
+import com.byoyedele.movemate.model.ShipmentStatus
+import com.byoyedele.movemate.model.ShipmentStatusLabel
 
 val listOfShipmentStatus = listOf(
     ShipmentStatus(

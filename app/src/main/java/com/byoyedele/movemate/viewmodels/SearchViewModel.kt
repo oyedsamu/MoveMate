@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.byoyedele.movemate.data.Item
-import com.byoyedele.movemate.data.itemList
+import com.byoyedele.movemate.model.Item
+import com.byoyedele.movemate.model.itemList
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -16,9 +16,6 @@ import kotlinx.coroutines.flow.stateIn
 
 class SearchViewModel : ViewModel() {
     var searchQuery by mutableStateOf("")
-        private set
-
-    var isSearchActive by mutableStateOf(false)
         private set
 
     val searchResults: StateFlow<List<Item>> =
@@ -39,10 +36,4 @@ class SearchViewModel : ViewModel() {
     fun onSearchQueryChange(newQuery: String) {
         searchQuery = newQuery
     }
-
-    fun onActiveChange(changed: Boolean) {
-        isSearchActive = changed
-    }
-
-    val demoLocation = "Wertheimer, Illinois"
 }

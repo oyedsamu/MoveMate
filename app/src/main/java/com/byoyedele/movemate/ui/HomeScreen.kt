@@ -47,10 +47,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.byoyedele.movemate.R
-import com.byoyedele.movemate.data.VehicleDetails
 import com.byoyedele.movemate.data.listOfVehicles
+import com.byoyedele.movemate.model.VehicleDetails
 import com.byoyedele.movemate.ui.theme.DimOrange
 import com.byoyedele.movemate.ui.theme.DirtyWhite
 import com.byoyedele.movemate.ui.theme.Green
@@ -61,7 +62,10 @@ import com.byoyedele.movemate.ui.utils.ContentAnimatedVisibility
 import com.byoyedele.movemate.viewmodels.HomeViewModel
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel, navController: NavHostController) {
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(),
+    navController: NavHostController,
+) {
     var isContentVisible by remember { mutableStateOf(false) }
     var isAppBarVisible by remember { mutableStateOf(false) }
     fun loadContent() {
@@ -170,7 +174,7 @@ fun VehicleItem(vehicleDetails: VehicleDetails) {
             .padding(16.dp)
     ) {
         Text(text = vehicleDetails.name, fontSize = 18.sp)
-        Text(text = vehicleDetails.type, fontSize = 12.sp, color= Color.Gray)
+        Text(text = vehicleDetails.type, fontSize = 12.sp, color = Color.Gray)
         Image(
             painter = painterResource(id = vehicleDetails.image),
             alignment = Alignment.BottomEnd,
@@ -300,7 +304,7 @@ fun ItemCard() {
                             fontSize = 12.sp,
                             color = Color.Gray
                         )
-                        Text(text = "Waiting to collect")
+                        Text(text = stringResource(id = R.string.waiting_to_collect))
                     }
                 }
             }

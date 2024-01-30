@@ -47,19 +47,21 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.byoyedele.movemate.viewmodels.CalculateViewModel
 import com.byoyedele.movemate.R
+import com.byoyedele.movemate.navigation.NavRoutes
 import com.byoyedele.movemate.ui.theme.DarkBlue
 import com.byoyedele.movemate.ui.theme.NavyBlue
 import com.byoyedele.movemate.ui.theme.SemiBoldTitleText
 import com.byoyedele.movemate.ui.utils.ActionButton
 import com.byoyedele.movemate.ui.utils.TitledAppBar
 import com.byoyedele.movemate.ui.utils.bounceClick
+import com.byoyedele.movemate.viewmodels.CalculateViewModel
 
 @Composable
 fun CalculateScreen(
-    viewModel: CalculateViewModel,
+    viewModel: CalculateViewModel = viewModel(),
     navController: NavController
 ) {
     Scaffold(
@@ -170,12 +172,10 @@ fun CalculateBody(
             Spacer(modifier = Modifier.size(16.dp))
             Text(text = stringResource(id = R.string.categories), style = SemiBoldTitleText)
             Text(text = stringResource(id = R.string.calculate_subtext), color = Color.Gray)
-            val categories =
-                listOf("Document", "Glass", "Liquid", "Food", "Electronic", "Product", "Others")
-            FilterChipGroup(items = categories)
+            FilterChipGroup(items = viewModel.categories)
         }
         ActionButton(stringResource(id = R.string.calculate)) {
-            navController.navigate("finalDestination") {
+            navController.navigate(NavRoutes.COST_ESTIMATE_SCREEN.route) {
                 popUpTo(navController.graph.startDestinationId)
                 launchSingleTop = true
             }
