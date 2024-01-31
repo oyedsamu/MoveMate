@@ -41,7 +41,6 @@ import com.byoyedele.movemate.ui.SearchScreen
 import com.byoyedele.movemate.ui.ShipmentScreen
 import com.byoyedele.movemate.ui.theme.Purple
 import com.byoyedele.movemate.ui.utils.bounceClick
-import com.byoyedele.movemate.viewmodels.HomeViewModel
 
 
 @Composable
@@ -128,30 +127,22 @@ fun NavigationHost(navController: NavHostController, paddingValues: PaddingValue
         composable(
             BottomNavItem.Calculate.route,
         ) {
-            CalculateScreen(
-                navController = navController
-            )
+            CalculateScreen(navController = navController)
         }
         composable(
             BottomNavItem.Home.route,
             exitTransition = { fadeOut(tween(1000)) + slideOutVertically(tween(1000)) }) {
-            HomeScreen(
-                HomeViewModel(), navController
-            )
+            HomeScreen(navController = navController)
         }
         composable(BottomNavItem.Shipment.route) {
-            ShipmentScreen(
-                navController = navController
-            )
+            ShipmentScreen(navController = navController)
         }
         composable(BottomNavItem.Profile.route) { }
         composable(NavRoutes.COST_ESTIMATE_SCREEN.route) { CostEstimateScreen(navController) }
         composable(NavRoutes.SEARCH_SCREEN.route,
             enterTransition = { fadeIn(tween(2000)) + slideInVertically(tween(500)) }
         ) {
-            SearchScreen(
-                navController = navController
-            )
+            SearchScreen(navController = navController)
         }
     }
 }
